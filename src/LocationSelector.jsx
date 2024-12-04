@@ -69,7 +69,7 @@ function LocationSelector() {
       
       </select>
       {
-        selectedCity ? <h3>You Selected {selectedCity}, {selectedState}, {selectedCountry}</h3>:null
+        selectedCountry && selectedState && selectedCity ? <h3>You Selected {selectedCity},{selectedState},{selectedCountry}</h3>:null
       }
       
     </div>
