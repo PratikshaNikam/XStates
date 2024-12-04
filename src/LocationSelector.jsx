@@ -12,18 +12,18 @@ function LocationSelector() {
 
 
   const getCountry = async () => {
-    fetch("https://crio-location-selector.onrender.com/countries").then((res)=>res.json()).then((data)=>setCountries(data))
+    fetch("https://crio-location-selector.onrender.com/countries").then((res)=>res.json()).then((data)=>setCountries(data)).catch((err)=>console.error(err))
     
   }
 
 
   const getState= async (countryName) => {
-    fetch(`https://crio-location-selector.onrender.com/country=${countryName}/states`).then((res)=>res.json()).then((data)=>setStates(data))
+    fetch(`https://crio-location-selector.onrender.com/country=${countryName}/states`).then((res)=>res.json()).then((data)=>setStates(data)).catch((err)=>console.error(err))
     
   }
 
   const getCities = async (countryName,stateName) => {
-    fetch(` https://crio-location-selector.onrender.com/country=${countryName}/state=${stateName}/cities`).then((res)=>res.json()).then((data)=>{setCities(data)})
+    fetch(` https://crio-location-selector.onrender.com/country=${countryName}/state=${stateName}/cities`).then((res)=>res.json()).then((data)=>{setCities(data)}).catch((err)=>console.error(err))
   }
 
   useEffect(()=>{
@@ -69,7 +69,7 @@ function LocationSelector() {
       
       </select>
       {
-        selectedCity ? <h3>You Selected { selectedCity},{selectedState},{selectedCountry}</h3>:null
+        selectedCity ? <h3>You Selected {selectedCity}, {selectedState}, {selectedCountry}</h3>:null
       }
       
     </div>
